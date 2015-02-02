@@ -16,7 +16,7 @@ reStructuredText
 | Python库docutils实现了对reStructuredText标记语言的解析支持，并能将其转化成其他常用的文档格式，如HTML，Latex，PDF
 
 | 建议学习reStructuredText语法的同时不断练习以加深印象。
-| 在线演示网址`<https://www.tele3.cz/jbar/rest/rest.html>`_，网址的搭建过程`<https://www.tele3.cz/jbar/rest/about.html>`_。
+| `在线演示网址 <https://www.tele3.cz/jbar/rest/rest.html>`_ ， `网址的搭建过程 `<https://www.tele3.cz/jbar/rest/about.html>`_ 。
 
 字体相关语法
 --------------------
@@ -162,11 +162,43 @@ reStructuredText
 段落相关语法
 --------------------
 
+**普通段落**
+
+.. raw:: html
+
+        <table border="1" cellpadding="1" cellspacing="1">
+			<tbody>
+				<tr>
+					<td style="text-align: center;">
+						<strong>语法</strong></td>
+					<td style="text-align: center;">
+						<strong>输出</strong></td>
+					<td style="text-align: center;">
+						<strong>说明</strong></td>
+				</tr>
+				<tr>
+					<td>
+						This is a paragraph.<br />
+						<br />
+						Paragraphs line up at<br />
+						their left edges,<br />
+						and are normally separated<br />
+						by blank lines.</td>
+					<td>
+						This is a paragraph.<br />
+						Paragraphs line up at their left edges, and are normally separated by blank lines.</td>
+					<td>
+						段落以空行分隔</td>
+				</tr>
+			</tbody>
+		</table>
+
+
 **标题**
 
 .. raw:: html
 
-		<table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
+		<table border="1" cellpadding="1" cellspacing="1">
 			<tbody>
 				<tr>
 					<td style="text-align: center;">
@@ -261,7 +293,7 @@ reStructuredText
 						</ul>
 					</td>
 					<td>
-						&nbsp;</td>
+						Bullet Lists</td>
 				</tr>
 				<tr>
 					<td>
@@ -285,14 +317,14 @@ reStructuredText
 						</ol>
 					</td>
 					<td>
-						&nbsp;</td>
+						Enumerated Lists</td>
 				</tr>
 				<tr>
 					<td>
 						what<br />
-						&nbsp;&nbsp;Definition lists associate a term with a definition.<br />
+						  Definition lists associate a term with a definition.<br />
 						how<br />
-						&nbsp;&nbsp;The term is a one-line phrase, and the definition is one or more paragraphs or body elements, indented relative to the term. Blank lines are not allowed between term and definition.</td>
+						  The term is a one-line phrase, and the definition is one or more paragraphs or body elements, indented relative to the term. Blank lines are not allowed between term and definition.</td>
 					<td>
 						<dl>
 							<dt>
@@ -306,66 +338,191 @@ reStructuredText
 						</dl>
 					</td>
 					<td>
-						&nbsp;</td>
+						Definition Lists</td>
 				</tr>
 				<tr>
 					<td>
-						&nbsp;</td>
+						:Authors:<br />
+						Tony J. (Tibs) Ibbs,<br />
+						David Goodger<br />
+						<br />
+						(and sundry other good-natured folks)<br />
+						<br />
+						:Version: 1.0 of 2001/08/08<br />
+						:Dedication: To my father.</td>
 					<td>
-						&nbsp;</td>
+						<strong>Authors:</strong> Tony J. (Tibs) Ibbs, David Goodger<br />
+						(and sundry other good-natured folks)<br />
+						<strong>Version:</strong> 1.0 of 2001/08/08<br />
+						<strong>Dedication:</strong> To my father.</td>
 					<td>
-						&nbsp;</td>
+						Field Lists</td>
 				</tr>
 				<tr>
 					<td>
-						&nbsp;</td>
+						-a            command-line option &quot;a&quot;<br />
+						-b file       options can have arguments<br />
+						              and long descriptions<br />
+						--long        options can be long also<br />
+						--input=file  long options can also have<br />
+						              arguments<br />
+						/V            DOS/VMS-style options too</td>
 					<td>
-						&nbsp;</td>
+						<table border="0" width="100%">
+							<tbody valign="top">
+								<tr>
+									<td width="30%">
+										-a</td>
+									<td>
+										command-line option &quot;a&quot;</td>
+								</tr>
+								<tr>
+									<td>
+										-b <i>file</i></td>
+									<td>
+										options can have arguments and long descriptions</td>
+								</tr>
+								<tr>
+									<td>
+										--long</td>
+									<td>
+										options can be long also</td>
+								</tr>
+								<tr>
+									<td>
+										--input=<i>file</i></td>
+									<td>
+										long options can also have arguments</td>
+								</tr>
+								<tr>
+									<td>
+										/V</td>
+									<td>
+										DOS/VMS-style options too</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
 					<td>
-						&nbsp;</td>
-				</tr>
-				<tr>
-					<td>
-						&nbsp;</td>
-					<td>
-						&nbsp;</td>
-					<td>
-						&nbsp;</td>
+						Option Lists</td>
 				</tr>
 			</tbody>
 		</table>
 
+**块**
 
+块中的特殊字符不会被解析和替代， 所有的特殊字符，空格和换行符会被保留。
 
+.. raw:: html
 
+		<table border="1" cellpadding="1" cellspacing="1" style="table-layout: fixed;">
+			<tbody>
+				<tr>
+					<td style="width: 40%; text-align: center;">
+						<strong>语法</strong></td>
+					<td style="width: 40%; text-align: center;">
+						<strong>输出</strong></td>
+					<td style="width: 40%; text-align: center;">
+						<strong>说明</strong></td>
+				</tr>
+				<tr>
+					<td>
+						A paragraph containing only two colons<br />
+						indicates that the following indented<br />
+						or quoted text is a literal block.<br />
+						<br />
+						::<br />
+						<br />
+						Whitespace, newlines, blank lines, and<br />
+						all kinds of markup (like *this* or<br />
+						\this) is preserved by literal blocks.<br />
+						<br />
+						The paragraph containing only &#39;::&#39;<br />
+						will be omitted from the result.<br />
+						<br />
+						The ``::`` may be tacked onto the very<br />
+						end of any paragraph. The ``::`` will be<br />
+						omitted if it is preceded by whitespace.<br />
+						The ``::`` will be converted to a single<br />
+						colon if preceded by text, like this::<br />
+						<br />
+						It&#39;s very convenient to use this form.<br />
+						<br />
+						Literal blocks end when text returns to<br />
+						the preceding paragraph&#39;s indentation.<br />
+						This means that something like this<br />
+						is possible::<br />
+						<br />
+						We start here<br />
+						and continue here<br />
+						and end here.<br />
+						<br />
+						Per-line quoting can also be used on<br />
+						unindented literal blocks::<br />
+						<br />
+						&gt; Useful for quotes from email and<br />
+						&gt; for Haskell literate programming.</td>
+					<td>
+						<p>
+							A paragraph containing only two colons indicates that the following indented or quoted text is a literal block.</p>
+						<pre>
+  Whitespace, newlines, blank lines, and
+  all kinds of markup (like *this* or
+  \this) is preserved by literal blocks.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  The paragraph containing only &#39;::&#39;
+  will be omitted from the result.</pre>
+						<p>
+							The :: may be tacked onto the very end of any paragraph. The :: will be omitted if it is preceded by whitespace. The :: will be converted to a single colon if preceded by text, like this:</p>
+						<pre>
+  It&#39;s very convenient to use this form.</pre>
+						<p>
+							Literal blocks end when text returns to the preceding paragraph&#39;s indentation. This means that something like this is possible:</p>
+						<pre>
+      We start here
+    and continue here
+  and end here.</pre>
+						<p>
+							Per-line quoting can also be used on unindented literal blocks:</p>
+						<pre>
+  &gt; Useful for quotes from email and
+  &gt; for Haskell literate programming.</pre>
+					</td>
+					<td>
+						<strong>段落块</strong><br />
+						两个冒号加一个空行后面所有的缩进的段落都是块</td>
+				</tr>
+				<tr>
+					<td>
+						| Line blocks are useful for addresses,<br />
+						| verse, and adornment-free lists.<br />
+						|<br />
+						| Each new line begins with a<br />
+						| vertical bar (&quot;|&quot;).<br />
+						| Line breaks and initial indents<br />
+						| are preserved.<br />
+						| Continuation lines are wrapped<br />
+						portions of long lines; they begin<br />
+						with spaces in place of vertical bars.</td>
+					<td>
+						Line blocks are useful for addresses,<br />
+						verse, and adornment-free lists.<br />
+						<br />
+						Each new line begins with a<br />
+						vertical bar (&quot;|&quot;).<br />
+						Line breaks and initial indents<br />
+						are preserved.<br />
+						Continuation lines are wrapped<br />
+						portions of long lines;<br />
+						they begin with spaces in place<br />
+						of vertical bars.</td>
+					<td>
+						<strong>行块</strong></td>
+				</tr>
+			</tbody>
+			<tbody>
+			</tbody>
+		</table>
 
 
 
