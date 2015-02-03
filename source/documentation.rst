@@ -16,10 +16,10 @@ reStructuredText
 | Python库docutils实现了对reStructuredText标记语言的解析支持，并能将其转化成其他常用的文档格式，如HTML，Latex，PDF
 
 | 建议学习reStructuredText语法的同时不断练习以加深印象。
-| `在线演示网址 <https://www.tele3.cz/jbar/rest/rest.html>`_ ， `网址的搭建过程 `<https://www.tele3.cz/jbar/rest/about.html>`_ 。
+| `在线演示网址 <https://www.tele3.cz/jbar/rest/rest.html>`_ ， `网址的搭建过程 <https://www.tele3.cz/jbar/rest/about.html>`_ 。
 
 字体相关语法
---------------------
+----------------
 
 ==================== ==================== ======================
     **语法**               **输出**              **说明**
@@ -30,7 +30,7 @@ reStructuredText
 ==================== ==================== ======================
 
 链接相关语法
---------------------
+-----------------
 
 .. raw:: html
 
@@ -54,10 +54,8 @@ reStructuredText
                     </tr>
                     <tr>
                         <td>
-                            <p>
-                                pypi_</p>
-                            <p>
-                                .. _pypi: https://pypi.python.org/pypi</p>
+                                pypi_<br />
+                                .. _pypi: https://pypi.python.org/pypi<br />
                         </td>
                         <td>
                             <a href="https://pypi.python.org/pypi">pypi</a></td>
@@ -66,10 +64,8 @@ reStructuredText
                     </tr>
                     <tr>
                         <td>
-                            <p>
-                                `python docs`_</p>
-                            <p>
-                                .. _`python docs`: http://docs.python.org</p>
+                                `python docs`_<br />
+                                .. _`python docs`: http://docs.python.org<br />
                         </td>
                         <td>
                             <a href="http://docs.python.org">python docs</a></td>
@@ -78,12 +74,9 @@ reStructuredText
                     </tr>
                     <tr>
                         <td>
-                            <p>
-                                `python intro`_</p>
-                            <p>
-                                .. _`python intro`:</p>
-                            <p>
-                                python introducation</p>
+                                `python intro`_<br />
+                                .. _`python intro`:<br />
+                                 python introducation<br />
                         </td>
                         <td>
                             <p>
@@ -96,10 +89,8 @@ reStructuredText
                     </tr>
                     <tr>
                         <td>
-                            <p>
-                                `anonymous`__</p>
-                            <p>
-                                __ http://www.python.org/</p>
+                                `anonymous`__<br />
+                                __ http://www.python.org/<br />
                         </td>
                         <td>
                             <a href="http://www.python.org/">anonymous</a></td>
@@ -108,10 +99,8 @@ reStructuredText
                     </tr>
                     <tr>
                         <td>
-                            <p>
-                                [1]_</p>
-                            <p>
-                                .. [1] this is a footnote</p>
+                                [1]_<br />
+                                .. [1] this is a footnote<br />
                         </td>
                         <td>
                             <p class="first">
@@ -132,10 +121,8 @@ reStructuredText
                     </tr>
                     <tr>
                         <td>
-                            <p>
-                                [citation]_</p>
-                            <p>
-                                .. [citation] this is a citation</p>
+                                [citation]_<br />
+                                .. [citation] this is a citation<br />
                         </td>
                         <td>
                             <p>
@@ -157,10 +144,8 @@ reStructuredText
                 </tbody>
             </table>
 
-
-
 段落相关语法
---------------------
+-----------------
 
 **普通段落**
 
@@ -198,42 +183,35 @@ reStructuredText
 
 .. raw:: html
 
-		<table border="1" cellpadding="1" cellspacing="1">
+		<table border="1" cellpadding="1" cellspacing="1" style="table-layout: fixed;">
 			<tbody>
 				<tr>
-					<td style="text-align: center;">
+					<td style="width: 30%; text-align: center;">
 						<strong>语法</strong></td>
-					<td style="text-align: center;">
+					<td style="width: 30%; text-align: center;">
 						<strong>输出</strong></td>
-					<td style="text-align: center;">
+					<td style="width: 30%; text-align: center;">
 						<strong>说明</strong></td>
 				</tr>
 				<tr>
 					<td>
-						<p>
-							parts</p>
-						<p>
-							###########</p>
-						<p>
-							chapters</p>
-						<p>
-							***********</p>
-						<p>
-							sections</p>
-						<p>
-							=========</p>
-						<p>
-							subsections</p>
-						<p>
-							------------</p>
-						<p>
-							subsubsections</p>
-						<p>
-							^^^^^^^^^^^^^^^</p>
-						<p>
-							paragraphs</p>
-						<p>
-							&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</p>
+							parts<br />
+							###########<br />
+						<br />
+							chapters<br />
+							***********<br />
+						<br />
+							sections<br />
+							=========<br />
+						<br />
+							subsections<br />
+							------------<br />
+						<br />
+							subsubsections<br />
+							^^^^^^^^^^^^^^^<br />
+						<br />
+							paragraphs<br />
+							&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br />
 					</td>
 					<td>
 						<h1 style="text-align: center;">
@@ -422,7 +400,7 @@ reStructuredText
 						<strong>语法</strong></td>
 					<td style="width: 40%; text-align: center;">
 						<strong>输出</strong></td>
-					<td style="width: 40%; text-align: center;">
+					<td style="width: 20%; text-align: center;">
 						<strong>说明</strong></td>
 				</tr>
 				<tr>
@@ -524,12 +502,106 @@ reStructuredText
 			</tbody>
 		</table>
 
+**注释**
+
+没有有效标记(如脚注)的直解标记(.. )文本块就是注释(`参考 <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#comments>`_) 例如:
+
+| .. This is a comment.
 
 
+可以用缩进文本来进行多行注释:
+
+::
+
+ ..
+   This whole indented block
+   is a comment.
+
+   Still in the comment.
 
 
+表格语法
+--------------------
+
+没有好的编辑器支持的话，建议不要使用reStructureText的表格，写起来很费时间。
 
 
+指令语法
+--------------------
+
+指令是reStructuredText用来在不改变/新增已有语法的基础上，扩展新的特性的一种机制。
+
+`reStructuredText标准指令文档 <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_ 罗列了所有的标准指令
+
+其他的指令由各自的解析器自己定义，比如sphinx就支持很多 `自定义的指令 <http://sphinx-doc-zh.readthedocs.org/en/latest/markup/index.html>`_ 
+
+指令语法示意:: 
+
+    +-------+------------------+
+    | ".. " | 指令类型 "::" 指令 |
+    +-------+ 块               |
+            |                  |
+            +------------------+
+            
+指令块由指令符后面所有缩进内容组成，指令块可以包含三部分：
+
+1. Directive arguments
+2. Directive options
+3. Directive content
+
+Directive arguments和Directive options紧接着指令。Directive content和它们之间用空行分隔。
+
+不同的指令对指令块的要求不同，如果提供的指令块不符合要求，会导致错误
+
+下面介绍一些常用的标准指令和sphinx自定义指令。
+
+        
+reStructuredText标准指令
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+提醒指令
+"""""""""""
+
+`提醒指令 <http://docutils.sourceforge.net/docs/ref/rst/directives.html#specific-admonitions>`_ ，包含"attention", "caution", "danger", "error", "hint", "important", "note", "tip", "warning", "admonition"
+
+**示例**:: 
+
+ .. attention::
+  Attention Please!
+  
+**输出** ：
+
+.. attention::
+ Attention Please!
+ 
+image指令
+"""""""""""""
+
+图片指令向输出中插入指定图片
+
+**示例**:: 
+
+ .. image:: images/happy_dog.jpg
+   :height: 200px
+   :width: 300 px
+   :scale: 50 %
+   :alt: 快乐的狗狗
+  
+**输出** ：
+
+.. image:: images/happy_dog.jpg
+   :height: 200px
+   :width: 300 px
+   :scale: 50 %
+   :alt: 快乐的狗狗
+
+
+**raw指令**
+""""""""""""""""
+
+
+sphinx自定义指令
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
