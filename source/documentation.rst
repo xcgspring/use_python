@@ -12,11 +12,23 @@
 reStructuredText
 ================
 
-| reStructuredText是一个纯文本的标记语言，可被用于python内嵌文档编写，网页编写或者用来写文章。
-| Python库docutils实现了对reStructuredText标记语言的解析支持，并能将其转化成其他常用的文档格式，如HTML，Latex，PDF
+reStructuredText是一个纯文本的标记语言，可被用于python内嵌文档编写，网页编写或者用来写文章。
 
-| 建议学习reStructuredText语法的同时不断练习以加深印象。
-| `在线演示网址 <https://www.tele3.cz/jbar/rest/rest.html>`_ ， `网址的搭建过程 <https://www.tele3.cz/jbar/rest/about.html>`_ 。
+Python库docutils实现了对reStructuredText标记语言的解析支持，并能将其转化成其他常用的文档格式，如HTML，Latex，PDF
+
+.. hint::
+
+ 建议学习reStructuredText语法的同时不断练习以加深印象。
+ `在线演示网址 <https://www.tele3.cz/jbar/rest/rest.html>`_ ， `网址的搭建过程 <https://www.tele3.cz/jbar/rest/about.html>`_ 。
+ 
+.. hint::
+
+ reStructureText参考资料：
+ 
+ - `reStructuredText 入门 <http://sphinx-doc-zh.readthedocs.org/en/latest/rest.html>`_
+ - `Quick reStructuredText <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
+ - `reStructuredText Markup Specification <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_
+ - `The reStructuredText Cheat Sheet: Syntax Reminders <http://docutils.sourceforge.net/docs/user/rst/cheatsheet.html>`_
 
 字体相关语法
 ----------------
@@ -24,7 +36,7 @@ reStructuredText
 ==================== ==================== ======================
     **语法**               **输出**              **说明**
 ==================== ==================== ======================
-\*斜体*              *斜体*                          
+\*斜体*              *斜体*                 
 \**加粗**            **加粗**                         
 \``内嵌``            ``内嵌``                     
 ==================== ==================== ======================
@@ -147,7 +159,8 @@ reStructuredText
 段落相关语法
 -----------------
 
-**普通段落**
+普通段落
+^^^^^^^^^^^^^^^^^
 
 .. raw:: html
 
@@ -179,7 +192,8 @@ reStructuredText
 		</table>
 
 
-**标题**
+标题
+^^^^^^^^^^^^^^^^
 
 .. raw:: html
 
@@ -242,7 +256,8 @@ reStructuredText
 			</tbody>
 		</table>
 
-**列表**
+列表
+^^^^^^^^^^^^^^
 
 列表的开始和结束各需要一个空行，列表中间的空行是可有可无的
 
@@ -387,7 +402,8 @@ reStructuredText
 			</tbody>
 		</table>
 
-**块**
+块
+^^^^^^^^^^^^^^^
 
 块中的特殊字符不会被解析和替代， 所有的特殊字符，空格和换行符会被保留。
 
@@ -502,7 +518,8 @@ reStructuredText
 			</tbody>
 		</table>
 
-**注释**
+注释
+^^^^^^^^^^^^^^^
 
 没有有效标记(如脚注)的直解标记(.. )文本块就是注释(`参考 <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#comments>`_) 例如:
 
@@ -519,11 +536,19 @@ reStructuredText
 
    Still in the comment.
 
+.. note::
 
+ 注释内容在输出中可能不可见
+   
+   
 表格语法
 --------------------
 
-没有好的编辑器支持的话，建议不要使用reStructureText的表格，写起来很费时间。
+见 `reStructureText表格 <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#tables>`_
+
+.. note:: 
+
+ 没有好的编辑器支持的话，建议不要使用reStructureText的表格，写起来很费时间。
 
 
 指令语法
@@ -553,7 +578,7 @@ Directive arguments和Directive options紧接着指令。Directive content和它
 
 不同的指令对指令块的要求不同，如果提供的指令块不符合要求，会导致错误
 
-下面介绍一些常用的标准指令和sphinx自定义指令。
+下面介绍一些常用的标准指令和sphinx扩充的指令。
 
         
 reStructuredText标准指令
@@ -577,7 +602,7 @@ reStructuredText标准指令
 image指令
 """""""""""""
 
-图片指令向输出中插入指定图片
+`图片指令 <http://docutils.sourceforge.net/docs/ref/rst/directives.html#image>`_ 向输出中插入指定图片
 
 **示例**:: 
 
@@ -596,24 +621,90 @@ image指令
    :alt: 快乐的狗狗
 
 
-**raw指令**
-""""""""""""""""
+**role指令**
+""""""""""""""""""""""
+
+`role指令 <http://docutils.sourceforge.net/docs/ref/rst/directives.html#custom-interpreted-text-roles>`_ 建立并向解析器注册了role类型，所有mark成这种role类型的文本都会被解析器以这种类型解析。
+
+reStructureText定义了一些 `标准role类型 <http://docutils.sourceforge.net/docs/ref/rst/roles.html>`_ 
+
+sphinx也扩充了 `一些role类型 <http://sphinx-doc-zh.readthedocs.org/en/latest/markup/inline.html#role-ref>`_ 
+
+**自定义role类型示例** ：
+
+使用role指令动态定义一种文本解析方式:: 
+
+ .. role:: custom
+ 
+文本中使用custom类型的文本会被按照custom类型来解析:: 
+
+ An example of using :custom:`interpreted text`
+ 
+结果会类似于这样:: 
+
+ <paragraph>
+    An example of using
+    <inline classes="custom">
+        interpreted text
+
+.. note:: 
+
+ role指令必须先定义，再使用
+   
+**基于已有role类型的示例**:
+
+可以基于已有的role类型来定义新的role类型，新的role类型将是已有类型的一个子集
+
+定义:: 
+
+ .. role:: raw-role(raw)
+    :format: html
+
+使用:: 
+    
+ 用html实现 :raw-role:`<strong>加粗的文本</strong>`
+ 
+输出：
+
+.. role:: raw-role(raw)
+    :format: html
+    
+用html实现 :raw-role:`<strong>加粗的文本</strong>` 
 
 
-sphinx自定义指令
+sphinx扩充的指令
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+sphinx对reStructureText的指令有所扩充，见 `Sphinx Markup Constructs <http://sphinx-doc-zh.readthedocs.org/en/latest/markup/index.html>`_
+
+**toctree**指令
+""""""""""""""""""""""
+
+`toctree指令 <http://sphinx-doc-zh.readthedocs.org/en/latest/markup/toctree.html>`_ 用来关联各个独立的文档， 将他们组织成一个整体来方便索引。
+
+.. note:: 
+
+ reStructtureText没有语法来组织独立的文档
+
+
+reStructuredText内嵌语法
+---------------------------
+
+当在文本中使用reStructuredText的标记时，需要有一些特别的注意点。见 `reStructuredText内嵌语法 <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#inline-markup>`_
+
+1. 起始reStructuredText标记前必须是：
+ - 空格
+ - ASCII字符 - : / ' " < ( [ {
+ - 
+2. reStructuredText标记
 
 
 
+.. note::
 
-
-
-
-
-
-
-
+ reStructuredText标记包含：
+ 
+ 1. 
 
 
 
