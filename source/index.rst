@@ -18,7 +18,8 @@ Contents:
    static_code_check
    packaging_and_sharing
    compile_to_exe
-   documentation
+   documentation-reStructureText
+   documentation-sphinx
 
 Indices and tables
 ==================

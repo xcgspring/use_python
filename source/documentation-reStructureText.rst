@@ -1,27 +1,22 @@
 .. _`编写文档`:
 
 ================================
-编写文档
+用reStructuredText编写文档
 ================================
 
 :Page Status: Development
 :Last Reviewed: 
 
-使用reStructuredText来编写文档，使用Sphinx来管理和发布文档。
-
-reStructuredText
-================
-
 reStructuredText是一个纯文本的标记语言，可被用于python内嵌文档编写，网页编写或者用来写文章。
 
 Python库docutils实现了对reStructuredText标记语言的解析支持，并能将其转化成其他常用的文档格式，如HTML，Latex，PDF
 
-.. hint::
+.. note::
 
  建议学习reStructuredText语法的同时不断练习以加深印象。
  `在线演示网址 <https://www.tele3.cz/jbar/rest/rest.html>`_ ， `网址的搭建过程 <https://www.tele3.cz/jbar/rest/about.html>`_ 。
  
-.. hint::
+.. note::
 
  reStructureText参考资料：
  
@@ -30,16 +25,62 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
  - `reStructuredText Markup Specification <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_
  - `The reStructuredText Cheat Sheet: Syntax Reminders <http://docutils.sourceforge.net/docs/user/rst/cheatsheet.html>`_
 
-字体相关语法
-----------------
+reStructuredText标记
+=====================
 
-==================== ==================== ======================
-    **语法**               **输出**              **说明**
-==================== ==================== ======================
-\*斜体*              *斜体*                 
-\**加粗**            **加粗**                         
-\``内嵌``            ``内嵌``                     
-==================== ==================== ======================
+内嵌标记
+--------------
+
+`内嵌标记 <http://docutils.sourceforge.net/docs/user/rst/quickref.html#inline-markup>`_ 能够使一段文字中的某些字段呈现出不同的特征
+
+起始标记和结束标记相同的：
+
+- 强调： "*"
+- 加粗： "**"
+- 解析文本： "`"
+- 内嵌块： "``"
+- 替换： "|"
+
+起始标记和结束标记不相同的：
+
+- 链接目标： "_`", "`"
+- 脚注： "[", "]_"
+- 链接： "`", "\`_" 或 "_"
+
+
+Explicit标记
+-----------------
+
+`Explicit标记 <http://docutils.sourceforge.net/docs/user/rst/quickref.html#explicit-markup>`_ 由两个点号和一个空格组成，用于实现脚注，链接，注释和指令语法。
+::
+ .. 
+
+reStructuredText标记内嵌注意
+============================
+
+当在文本中使用reStructuredText的标记和对单独词组使用reStructuredText的标记有所不同，需要有一些特别的注意点。见 `reStructuredText内嵌语法 <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#inline-markup>`_
+
+1. 起始reStructuredText标记之前必须是：
+
+ - 空格
+ - ASCII字符 - : / ' " < ( [ {
+ - a non-ASCII punctuation character with `Unicode category <http://www.unicode.org/Public/5.1.0/ucd/UCD.html#General_Category_Values>`_ Pd (Dash), Po (Other), Pe (Close), Pf (Final quote), or Pi (Initial quote)
+ 
+2. 起始reStructuredText标记之后必须是一个非空格字符
+3. 结尾reStructuredText标记之后必须是：
+
+ - 空格
+ - ASCII字符 - : / ' " < ( [ {
+ - a non-ASCII punctuation character with `Unicode category <http://www.unicode.org/Public/5.1.0/ucd/UCD.html#General_Category_Values>`_ Pd (Dash), Po (Other), Pe (Close), Pf (Final quote), or Pi (Initial quote)
+ 
+4. 结尾reStructuredText标记之前必须是一个非空格字符
+5. 如果起始起始reStructuredText标记之前有ASCII字符 ' " < ( [ {或者a character with Unicode character category Ps, Pi, or Pf则之后不能直接接ASCII字符' " ) ] } > or the categories Pe, Pf, or Pi
+6. 起始reStructuredText标记和结尾reStructuredText标记之间至少有一个字符
+7. 反斜杠字符会取消reStructuredText标记的语义
+
+
+reStructuredText常见语法
+========================
 
 链接相关语法
 -----------------
@@ -421,6 +462,14 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
 				</tr>
 				<tr>
 					<td>
+						``inline literal``</td>
+					<td>
+						<pre>inline literal</pre></td>
+					<td>
+						内嵌块经常用于显示一段短小的代码</td>
+				</tr>
+				<tr>
+					<td>
 						A paragraph containing only two colons<br />
 						indicates that the following indented<br />
 						or quoted text is a literal block.<br />
@@ -677,7 +726,7 @@ sphinx扩充的指令
 
 sphinx对reStructureText的指令有所扩充，见 `Sphinx Markup Constructs <http://sphinx-doc-zh.readthedocs.org/en/latest/markup/index.html>`_
 
-**toctree**指令
+**toctree** 指令
 """"""""""""""""""""""
 
 `toctree指令 <http://sphinx-doc-zh.readthedocs.org/en/latest/markup/toctree.html>`_ 用来关联各个独立的文档， 将他们组织成一个整体来方便索引。
@@ -685,26 +734,5 @@ sphinx对reStructureText的指令有所扩充，见 `Sphinx Markup Constructs <h
 .. note:: 
 
  reStructtureText没有语法来组织独立的文档
-
-
-reStructuredText内嵌语法
----------------------------
-
-当在文本中使用reStructuredText的标记时，需要有一些特别的注意点。见 `reStructuredText内嵌语法 <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#inline-markup>`_
-
-1. 起始reStructuredText标记前必须是：
- - 空格
- - ASCII字符 - : / ' " < ( [ {
- - 
-2. reStructuredText标记
-
-
-
-.. note::
-
- reStructuredText标记包含：
- 
- 1. 
-
 
 
