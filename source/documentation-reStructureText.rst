@@ -1,4 +1,4 @@
-.. _`编写文档`:
+.. _`用reStructuredText编写文档`:
 
 ================================
 用reStructuredText编写文档
