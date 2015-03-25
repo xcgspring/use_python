@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
-   package_install
+   module_and_package
    access_windows_dlls
    common_used_libraries
    unit_test

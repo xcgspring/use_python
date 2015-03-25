@@ -443,10 +443,12 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
 			</tbody>
 		</table>
 
-3.2.4 块
+3.2.4 文字块
 ^^^^^^^^^^^^^^^
 
-块中的特殊字符不会被解析和替代， 所有的特殊字符，空格和换行符会被保留。
+.. note::
+
+ 文字块中的特殊字符不会被解析和替代， 所有的特殊字符，空格和换行符会被保留。
 
 .. raw:: html
 
@@ -462,74 +464,84 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
 				</tr>
 				<tr>
 					<td>
-						``inline literal``</td>
+						``内嵌文字块``</td>
 					<td>
-						<pre>inline literal</pre></td>
+						<pre>内嵌文字块</pre></td>
 					<td>
 						内嵌块经常用于显示一段短小的代码</td>
 				</tr>
 				<tr>
 					<td>
-						A paragraph containing only two colons<br />
-						indicates that the following indented<br />
-						or quoted text is a literal block.<br />
+						只有双引号``::``的段落表明接下来的所有缩进的/引用的文字都是一个文字块<br />
 						<br />
 						::<br />
 						<br />
-						Whitespace, newlines, blank lines, and<br />
-						all kinds of markup (like *this* or<br />
-						\this) is preserved by literal blocks.<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;所有的reStructureText的转义字符如空格，换行，空行<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;(like *this* or \this) 都不会被转义，会被直接保留。<br />
 						<br />
-						The paragraph containing only &#39;::&#39;<br />
-						will be omitted from the result.<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;结果中不会保留双引号<br />
 						<br />
-						The ``::`` may be tacked onto the very<br />
-						end of any paragraph. The ``::`` will be<br />
-						omitted if it is preceded by whitespace.<br />
-						The ``::`` will be converted to a single<br />
-						colon if preceded by text, like this::<br />
+                        
+						双引号``::``可以位于一个段落的最后，<br />
+						如果双引号``::``后面接空格，双引号会被忽略，<br />
+						如果双引号``::``后面接文字，双引号会变成一个单引号，<br />
+						比如::<br />
 						<br />
-						It&#39;s very convenient to use this form.<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;这样很方便<br />
 						<br />
-						Literal blocks end when text returns to<br />
-						the preceding paragraph&#39;s indentation.<br />
-						This means that something like this<br />
-						is possible::<br />
+                        
+						当缩进恢复正常，文字段结束，<br />
+						所以我们可以在文字段中使用不同的缩进::<br />
 						<br />
-						We start here<br />
-						and continue here<br />
-						and end here.<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8个空格的缩进<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4个空格的缩进<br />
+						&nbsp;&nbsp;&nbsp;2个空格的缩进<br />
 						<br />
-						Per-line quoting can also be used on<br />
-						unindented literal blocks::<br />
+                        
+						也使用引用来标识文字块，合法的引用符号有::<br />
+                        <br />
+                        &nbsp; ! " # $ % & ' ( ) * + , - . / : ;<br />
+                        &nbsp; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~<br />
+                        <br />
+                        利用引用标识的文字块示例::<br />
 						<br />
-						&gt; Useful for quotes from email and<br />
-						&gt; for Haskell literate programming.</td>
+						&gt; 引用的文字块第一行<br />
+						&gt; 引用的文字块第二行<br />
+                        <br />
+                                               
+                        </td>
 					<td>
 						<p>
-							A paragraph containing only two colons indicates that the following indented or quoted text is a literal block.</p>
+							只有双引号``::``的段落表明接下来的所有缩进的/引用的文字都是一个文字块</p>
 						<pre>
-  Whitespace, newlines, blank lines, and
-  all kinds of markup (like *this* or
-  \this) is preserved by literal blocks.
+    所有的reStructureText的转义字符如空格，换行，空行
+    (like *this* or \this) 都不会被转义，会被直接保留
 
-  The paragraph containing only &#39;::&#39;
-  will be omitted from the result.</pre>
+    结果中不会保留双引号</pre>
 						<p>
-							The :: may be tacked onto the very end of any paragraph. The :: will be omitted if it is preceded by whitespace. The :: will be converted to a single colon if preceded by text, like this:</p>
+							双引号``::``可以位于一个段落的最后
+                            如果双引号``::``后面接空格，双引号会被忽略
+                            如果双引号``::``后面接文字，双引号会变成一个单引号
+                            比如:</p>
 						<pre>
-  It&#39;s very convenient to use this form.</pre>
+    这样很方便</pre>
 						<p>
-							Literal blocks end when text returns to the preceding paragraph&#39;s indentation. This means that something like this is possible:</p>
+							当缩进恢复正常，文字段结束
+                            所以我们可以在文字段中使用不同的缩进:</p>
 						<pre>
-      We start here
-    and continue here
-  and end here.</pre>
+         8个空格的缩进
+     4个空格的缩进
+   2个空格的缩进</pre>
 						<p>
-							Per-line quoting can also be used on unindented literal blocks:</p>
+							也使用引用来标识文字块，合法的引用符号有：</p>
+                        <pre>
+ ! " # $ % & ' ( ) * + , - . / : ;
+ < = > ? @ [ \ ] ^ _ ` { | } ~</pre>
+                        <p>利用引用标识的文字块示例:</p>
 						<pre>
-  &gt; Useful for quotes from email and
-  &gt; for Haskell literate programming.</pre>
+ > 引用的文字块第一行
+ > 引用的文字块第二行</pre>
+
 					</td>
 					<td>
 						<strong>段落块</strong><br />
@@ -589,7 +601,30 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
 
  注释内容在输出中可能不可见
    
-   
+3.2.6 代码块
+^^^^^^^^^^^^^^^
+
+可以用如3.2.4节文字块的方法来标识代码块:
+
+**示例**：
+
+::
+
+ python code::
+  
+  #python code
+  def one_function():
+      pass
+      
+      
+**输出**：
+
+python code::
+
+ #python code
+ def one_function():
+     pass
+
 3.3 表格语法
 --------------------
 
