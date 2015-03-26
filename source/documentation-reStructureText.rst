@@ -25,10 +25,10 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
  - `reStructuredText Markup Specification <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_
  - `The reStructuredText Cheat Sheet: Syntax Reminders <http://docutils.sourceforge.net/docs/user/rst/cheatsheet.html>`_
 
-1 reStructuredText标记
+reStructuredText标记
 =====================
 
-1.1 内嵌标记
+内嵌标记
 --------------
 
 `内嵌标记 <http://docutils.sourceforge.net/docs/user/rst/quickref.html#inline-markup>`_ 能够使一段文字中的某些字段呈现出不同的特征
@@ -48,14 +48,14 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
 - 链接： "`", "\`_" 或 "_"
 
 
-1.2 Explicit标记
+Explicit标记
 -----------------
 
 `Explicit标记 <http://docutils.sourceforge.net/docs/user/rst/quickref.html#explicit-markup>`_ 由两个点号和一个空格组成，用于实现脚注，链接，注释和指令语法。
 ::
  .. 
 
-2 reStructuredText标记内嵌注意
+reStructuredText标记内嵌注意
 ============================
 
 当在文本中使用reStructuredText的标记和对单独词组使用reStructuredText的标记有所不同，需要有一些特别的注意点。见 `reStructuredText内嵌语法 <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#inline-markup>`_
@@ -78,11 +78,10 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
 6. 起始reStructuredText标记和结尾reStructuredText标记之间至少有一个字符
 7. 反斜杠字符会取消reStructuredText标记的语义
 
-
-3 reStructuredText常见语法
+reStructuredText常见语法
 ========================
 
-3.1 链接相关语法
+链接相关语法
 -----------------
 
 .. raw:: html
@@ -197,10 +196,10 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
                 </tbody>
             </table>
 
-3.2 段落相关语法
+段落相关语法
 -----------------
 
-3.2.1 普通段落
+普通段落
 ^^^^^^^^^^^^^^^^^
 
 .. raw:: html
@@ -233,7 +232,7 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
 		</table>
 
 
-3.2.2 标题
+标题
 ^^^^^^^^^^^^^^^^
 
 .. raw:: html
@@ -297,7 +296,7 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
 			</tbody>
 		</table>
 
-3.2.3 列表
+列表
 ^^^^^^^^^^^^^^
 
 列表的开始和结束各需要一个空行，列表中间的空行是可有可无的
@@ -443,7 +442,7 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
 			</tbody>
 		</table>
 
-3.2.4 文字块
+文字块
 ^^^^^^^^^^^^^^^
 
 .. note::
@@ -579,7 +578,7 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
 			</tbody>
 		</table>
 
-3.2.5 注释
+注释
 ^^^^^^^^^^^^^^^
 
 没有有效标记(如脚注)的直解标记(.. )文本块就是注释(`参考 <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#comments>`_) 例如:
@@ -601,7 +600,7 @@ Python库docutils实现了对reStructuredText标记语言的解析支持，并�
 
  注释内容在输出中可能不可见
    
-3.2.6 代码块
+代码块
 ^^^^^^^^^^^^^^^
 
 可以用如3.2.4节文字块的方法来标识代码块:
@@ -625,7 +624,7 @@ python code::
  def one_function():
      pass
 
-3.3 表格语法
+表格语法
 --------------------
 
 见 `reStructureText表格 <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#tables>`_
@@ -635,7 +634,7 @@ python code::
  没有好的编辑器支持的话，建议不要使用reStructureText的表格，写起来很费时间。
 
 
-3.4 指令语法
+指令语法
 --------------------
 
 指令是reStructuredText用来在不改变/新增已有语法的基础上，扩展新的特性的一种机制。
@@ -665,10 +664,10 @@ Directive arguments和Directive options紧接着指令。Directive content和它
 下面介绍一些常用的标准指令和sphinx扩充的指令。
 
         
-3.4.1 reStructuredText标准指令
+reStructuredText标准指令
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.4.1.1 提醒指令
+提醒指令
 """"""""""""""""""
 
 `提醒指令 <http://docutils.sourceforge.net/docs/ref/rst/directives.html#specific-admonitions>`_ ，包含"attention", "caution", "danger", "error", "hint", "important", "note", "tip", "warning", "admonition"
@@ -683,7 +682,7 @@ Directive arguments和Directive options紧接着指令。Directive content和它
 .. attention::
  Attention Please!
  
-3.4.1.2 image指令
+image指令
 """"""""""""""""""
 
 `图片指令 <http://docutils.sourceforge.net/docs/ref/rst/directives.html#image>`_ 向输出中插入指定图片
@@ -705,7 +704,7 @@ Directive arguments和Directive options紧接着指令。Directive content和它
    :alt: 快乐的狗狗
 
 
-3.4.1.3 **role指令**
+**role指令**
 """"""""""""""""""""""
 
 `role指令 <http://docutils.sourceforge.net/docs/ref/rst/directives.html#custom-interpreted-text-roles>`_ 建立并向解析器注册了role类型，所有mark成这种role类型的文本都会被解析器以这种类型解析。
@@ -756,7 +755,7 @@ sphinx也扩充了 `一些role类型 <http://sphinx-doc-zh.readthedocs.org/en/la
 用html实现 :raw-role:`<strong>加粗的文本</strong>` 
 
 
-3.4.2 sphinx扩充的指令
+sphinx扩充的指令
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 sphinx对reStructureText的指令有所扩充，见 `Sphinx Markup Constructs <http://sphinx-doc-zh.readthedocs.org/en/latest/markup/index.html>`_
