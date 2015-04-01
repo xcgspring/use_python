@@ -170,6 +170,8 @@ windows平台上大部分模块基于COM技术，对COM的支持使得python能�
 .. note::
 
  c++扩展中会被python调用的方法，应该用 ``extern "C"`` 声明
+ 
+ 可以使用 `Boost.Python <http://www.boost.org/doc/libs/1_57_0/libs/python/doc/>`_ 库来简化c++扩展
 
 用 ``distutils`` 编译c/c++扩展
 -------------------------------
@@ -189,7 +191,15 @@ windows平台上大部分模块基于COM技术，对COM的支持使得python能�
     )
 
 扩展的编译是通过distutils中的Extension类来完成的，详见 [10]_
+
+.. note::
+
+ 如果在windows上编译遇到 ``error: Unable to find vcvarsall.bat``
  
+ 则需要设置环境变量，将 ``VS90COMNTOOLS`` 设置为VS的Tools路径
+
+ 比如， 如果你安装的是2013版 ``SET VS90COMNTOOLS=%VS120COMNTOOLS%``
+
 向c/c++程序里面内嵌python代码
 ===============================
 
