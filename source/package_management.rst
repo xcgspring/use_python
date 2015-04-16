@@ -31,48 +31,89 @@ PyPI推荐使用pip包管理器来下载第三方库。
 
  这种安装方法不会自动安装库的依赖
 
+使用easy_install管理第三方库
+============================
 
+安装 `setuptools <https://pypi.python.org/pypi/setuptools>`_
+-------------------------------------------------------------
+
+可以直接下载压缩包，解压安装。或者对于联网的机器，也可以使用 `ez_setup.py <https://bootstrap.pypa.io/ez_setup.py>`_ 安装::
+
+ python ez_setup.py
+ 
+安装 `setuptools <https://pypi.python.org/pypi/setuptools>`_ 结束之后， easy_install也会被同时安装。
+将easy_install的路径加入执行路径后，在console中就可以使用easy_install来安装python包，easy_install支持离线安装（zip包，tar包，exe包）和在线安装（PyPI URL），并且能自动下载安装依赖包::
+
+ easy_install [options] package_pat/URL
+ 
+.. note::
+
+ 对于使用代理的机器，在使用easy_install之前需要先设置console的环境变量来指明代理
+ 
+ ``set http_proxy=...``
+ 
+ ``set https_proxy=...``
+ 
 使用pip管理第三方库（推荐）
 ============================
 
 安装pip
 -------------
 
-pip已经在python 3.4中默认包含，如果使用的是其他的python版本，需要先安装pip
+pip已经在python 3.4中默认包含，如果使用的是其他的python版本，需要先安装pip，三种方法：
 
- - 下载 `get-pip.py <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_
-
- - 执行命令 ``python get-pip.py``
-
-.. note::
-
- 如果工作机使用代理上网，需要设置环境变量来指明代理服务器后， 才能执行命令 ``python get-pip.py``
+ 1. 下载 `pip安装包 <https://pypi.python.org/pypi/pip/6.1.1>`_ 安装
+ 2. ``easy_install pip``
+ 3. 下载 `get-pip.py <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ ， 执行命令 ``python get-pip.py``
  
-使用pip下载安装第三方库
--------------------------
+使用pip
+--------
 
-安装最新版本的库:
+pip的用法和easy_install类似，但支持更多的功能::
 
-::
+    Usage:
+      pip <command> [options]
 
- pip install 'SomeProject'
+    Commands:
+      install                     Install packages.
+      uninstall                   Uninstall packages.
+      freeze                      Output installed packages in requirements format.
+      list                        List installed packages.
+      show                        Show information about installed packages.
+      search                      Search PyPI for packages.
+      wheel                       Build wheels from your requirements.
+      zip                         DEPRECATED. Zip individual packages.
+      unzip                       DEPRECATED. Unzip individual packages.
+      help                        Show help for commands.
 
-
-安装特定版本的库:
-
-::
-
- pip install 'SomeProject==1.4'
-
-使用pip升级第三方库
-------------------------
-
-将已有的库升级到最新版本：
-
-::
-
- pip install --upgrade SomeProject
-
+    General Options:
+      -h, --help                  Show help.
+      --isolated                  Run pip in an isolated mode, ignoring
+                                  environment variables and user configuration.
+      -v, --verbose               Give more output. Option is additive, and can be
+                                  used up to 3 times.
+      -V, --version               Show version and exit.
+      -q, --quiet                 Give less output.
+      --log <path>                Path to a verbose appending log.
+      --proxy <proxy>             Specify a proxy in the form
+                                  [user:passwd@]proxy.server:port.
+      --retries <retries>         Maximum number of retries each connection should
+                                  attempt (default 5 times).
+      --timeout <sec>             Set the socket timeout (default 15 seconds).
+      --exists-action <action>    Default action when a path already exists:
+                                  (s)witch, (i)gnore, (w)ipe, (b)ackup.
+      --trusted-host <hostname>   Mark this host as trusted, even though it does
+                                  not have valid or any HTTPS.
+      --cert <path>               Path to alternate CA bundle.
+      --client-cert <path>        Path to SSL client certificate, a single file
+                                  containing the private key and the certificate
+                                  in PEM format.
+      --cache-dir <dir>           Store the cache data in <dir>.
+      --no-cache-dir              Disable the cache.
+      --disable-pip-version-check
+                                  Don't periodically check PyPI to determine
+                                  whether a new version of pip is available for
+                                  download. Implied with --no-index.
 
 参考
 =================
