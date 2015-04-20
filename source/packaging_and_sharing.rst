@@ -184,7 +184,7 @@ setup函数的参数::
 =================
 
 1. 注册账号，建议通过 `PyPI用户注册界面 <https://pypi.python.org/pypi?%3Aaction=register_form>`_ 完成注册
-2. 注册工程，建议通过 `PyPI工程注册界面 <https://pypi.python.org/pypi?%3Aaction=submit_form>`_ 完成注册
+2. 注册工程，进入工程目录，``python setup.py register`` ，最后提示保存pypi账号的时候，确认保存
 3. 上传工程，建议使用 `twine <https://python-packaging-user-guide.readthedocs.org/en/latest/projects.html#twine>`_ 来上传
 
 ::
@@ -193,9 +193,11 @@ setup函数的参数::
 
 .. note::
 
- PyPI不推荐使用 ``python setup.py register`` 来完成用户注册和工程注册，因为这种方式会使用明文来传输你的用户名和密码
+ 在使用代理的机器上，需要首先设置console的环境变量来指明代理
  
- 同样的原因， 也不推荐使用 ``python setup.py sdist upload`` 来上传工程
+ ``set http_proxy=...``
+ 
+ ``set https_proxy=...``
  
 
 

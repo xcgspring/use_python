@@ -115,6 +115,12 @@ pip的用法和easy_install类似，但支持更多的功能::
                                   whether a new version of pip is available for
                                   download. Implied with --no-index.
 
+.. note::
+
+ 对于使用代理的机器，在使用pip时候需要指明代理
+ 
+ pip install XXX --proxy <proxy> 
+                                  
 参考
 =================
 
