@@ -15,7 +15,7 @@ Contents:
    package_management
    python_coding_tips
    unit_test
-   static_code_check
+   code_quality_check
    packaging_and_sharing
    compile_to_binary
    interact_with_other_language
