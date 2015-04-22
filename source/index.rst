@@ -9,7 +9,7 @@ Welcome to use python documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :numbered:
 
    package_management

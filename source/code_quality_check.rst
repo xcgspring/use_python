@@ -35,7 +35,7 @@ python编码检查工具
     `pylint <https://pypi.python.org/pypi/pylint>`_ 的默认设置有时候太严格了，我们可以通过创建pylint的configure文件来声明我们需要enable/disable哪些规则
     
     1. 首先，我们生成一份sample configure文件， ``pylint --generate-rcfile sample_config``
-    2. 在文件中找到 ``[MESSAGES CONTROL]`` 段，设置 ``enable=`` ``disable=`` 为需要打开/关闭的规则，规则列表见 `http://docs.pylint.org/features.html#pylint-checkers-options-and-switches`
+    2. 在文件中找到 ``[MESSAGES CONTROL]`` 段，设置 ``enable=`` ``disable=`` 为需要打开/关闭的规则，规则列表见 `pylint-checkers-options-and-switches <http://docs.pylint.org/features.html#pylint-checkers-options-and-switches>`_
     3. configure文件需要放到合适的位置， 当前文件夹下的 *pylintrc* 文件 > 环境变量 `PYLINTRC` 指明的文件 > 用户目录下的 *.pylintrc* 文件 > */etc/pylintrc*
 
 `landscape <https://landscape.io/>`_
@@ -43,4 +43,4 @@ python编码检查工具
 
 一个python代码质量检查网站，对于开源工程是免费的。如果你的工程是一个host在GitHub上的开源的python工程，这个网站是一个很好的代码质量检查工具。
 
-参考它的文档： `https://docs.landscape.io/#`
+参考它的文档： `landscape文档 <https://docs.landscape.io/#>`_
