@@ -24,7 +24,7 @@ py2exe for python3.3 host在 `PyPI上 <https://pypi.python.org/pypi/py2exe>`_
 基本使用步奏
 ---------------
 
-参考 `py2exe Tutorial <http://www.py2exe.org/index.cgi/Tutorial>` _
+参考 `py2exe Tutorial <http://www.py2exe.org/index.cgi/Tutorial>`_
 
 1. 安装py2exe
 2. 安装打包所需windows runtime， 对于python2.7和python3.3， 需要安装VS2008或 `Microsoft Visual C++ 2008 Redistributable Package <http://www.microsoft.com/downloads/en/details.aspx?FamilyID=9b2da534-3e03-4391-8a4d-074b9f2bc1bf&displaylang=en>`_

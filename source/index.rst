@@ -13,7 +13,7 @@ Contents:
    :numbered:
 
    package_management
-   python_coding_tips
+   python_coding_patterns
    unit_test
    code_quality_check
    packaging_and_sharing
