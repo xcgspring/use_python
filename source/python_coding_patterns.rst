@@ -41,6 +41,8 @@ Python是一门动态语言，所有的类型（函数，类，实例）都是�
 迭代器和组合操作
 =======================
 
+迭代器和组合操作是python `从Haskell借鉴的语法 <https://docs.python.org/2/howto/functional.html#generator-expressions-and-list-comprehensions>`_
+
 迭代器
 -------------------
 
@@ -57,7 +59,7 @@ Python是一门动态语言，所有的类型（函数，类，实例）都是�
 组合操作
 --------------------
 
-组合操作比一般的循环操作节省代码，而且能提高性能，python推荐使用组合操作来替代一般的循环操作。
+组合操作比一般的循环操作节省代码，而且能提高性能，组合操作会使用C的循环，而不是一般的python循环，python推荐使用组合操作来生成列表。
 
 组合操作形式::
 
@@ -139,6 +141,74 @@ property VS method
 Unicode
 =======================
 
+这个关于unicode的章节是针对python 2的。
+
+hex转义
+----------------------------
+
+str类型可以存储所有的ascii码的字符，比如英文字母，数字和一些标点符号。但对于其他语种里面的字符，比如中文字符，则需要特殊的存储处理。
+
+str类型对于非ascii的字符，是直接存储该字符的二进制值（使用某种编码格式），可以用hex转义的str来存储这种二进制值。
+
+
+示例代码如下，解析器的编码格式是UTF-8::
+
+    >>> a = "你好"
+    >>> a
+    '\xe4\xbd\xa0\xe5\xa5\xbd'
+::
+
+    >>> c = '\xe4\xbd\xa0\xe5\xa5\xbd'
+    >>> print(c)
+    你好
+
+编解码(encode & decode)
+----------------------------
+
+编码将unicode转化成某种编码格式，编码将某种编码格式转化成unicode，标准编码格式见 `Standard Encodings <https://docs.python.org/2/library/codecs.html#standard-encodings>`_
+
+一般国际通用的编码格式是UTF-8，中文有时候会用gb2312，gbk编码，推荐使用UTF-8的编码格式。
+
+示例代码如下，解析器的编码格式是UTF-8::
+
+    >>> a = "你好"
+    >>> a
+    '\xe4\xbd\xa0\xe5\xa5\xbd'
+    >>> b = a.decode("utf-8")
+    >>> b
+    u'\u4f60\u597d'
+    >>> c = b.encode("utf-8")
+    >>> c
+    '\xe4\xbd\xa0\xe5\xa5\xbd'
+    >>> a == c
+    True
+
+文本文件和解析器本身的编码
+----------------------------
+
+文本文件和解析器这种需要向用户显示信息的地方，一般都有自己的编码格式，能将二进制数据显示成文本，或将文本存储成二进制数据。
+
+当编辑器载入文本的时候，需要知道文本的编码格式，才能正确显示。编辑器如何知道文本的编码格式呢，不同的文本格式的规则也有所不同。
+
+1. Windows文本文件会在文件开头添加一些额外的字节来标识不同的编码格式
+2. python脚本默认编码格式是UTF-8，可以在文本开头添加 ``# -*- coding: latin-1 -*-`` 来声明编码格式
+3. XML默认编码格式是UTF-8，可以在开头添加 ``<?xml version="1.0" encoding="ISO-8859-1"?>`` 来声明编码格式
+4. HTML默认编码格式是UTF-8，可以在开头添加 ``<meta http-equiv="Content-Type" content="text/html; charset=utf-8">`` 来声明编码格式
+
+python解析器在不同平台上使用的编码格式也可能不同
+
+Windows console::
+
+    >>> import locale
+    >>> locale.getdefaultlocale()
+    ('en_US', 'cp1252')
+    
+Ubuntu terminal::
+
+    >>> import locale
+    >>> locale.getdefaultlocale()
+    ('en_PH', 'UTF-8')
+
 线程和全局锁(GIL)
 =======================
 
@@ -176,20 +246,27 @@ Python有一个自动的垃圾回收机制，原理如下：
 * `Python gc 模块文档 <https://docs.python.org/2/library/gc.html>`_
 * `Python gc 代码 <https://hg.python.org/cpython/file/tip/Modules/gcmodule.c>`_
 
-面向对象编程
+面向对象设计和编程
 =======================
 
-继承和组合
------------------
-
-多重继承
------------------
+python提供了 `一套面向对象的语言特性 <https://docs.python.org/2/tutorial/classes.html>`_，来支持面向对象设计和编程
 
 模板和接口
 -----------------
 
-绑定
+
+动态绑定
 -----------------
+
+
+
+多重继承问题
+-----------------
+
+python class支持多重继承，但需要注意的，使用多重继承时，python查找成员的机制。
+
+* 对于old-style的类（python 2中不继承object的类），查找成员的顺序是由左到右，深度优先
+* 对于new-style的类（python 2中继承object的类，python 3中所有的类都是new-style的）， 查找顺序遵循 `MRO(Method Resolution Order) <https://www.python.org/download/releases/2.3/mro/>`_
 
 修饰器
 =======================
