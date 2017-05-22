@@ -23,6 +23,7 @@ Contents:
    documentation-sphinx
    UI_app_develop
    web_app_develop
+   debug
    
 Indices and tables
 ==================
